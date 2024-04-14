@@ -1,7 +1,7 @@
 package com.mjc.school.service.implementation;
 
 import com.mjc.school.repository.datasource.NewsDataSource;
-import com.mjc.school.repository.implementations.NewsRepositoryImplementation;
+import com.mjc.school.repository.implementation.NewsRepositoryImplementation;
 import com.mjc.school.repository.interfaces.NewsRepository;
 import com.mjc.school.repository.model.News;
 import com.mjc.school.service.dto.NewsDTO;

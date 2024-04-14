@@ -4,7 +4,7 @@ import com.mjc.school.repository.datasource.NewsDataSource;
 import com.mjc.school.repository.implementation.NewsRepositoryImplementation;
 import com.mjc.school.repository.interfaces.NewsRepository;
 import com.mjc.school.repository.model.NewsModel;
-import com.mjc.school.service.dto.NewsDTO;
+import com.mjc.school.service.dto.NewsDto;
 import com.mjc.school.service.exception.ArgumentValidException;
 import com.mjc.school.service.exception.ErrorMeanings;
 import com.mjc.school.service.exception.IDNotFoundException;
@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-public class NewsServiceImplementation implements NewsService<NewsDTO> {
+public class NewsServiceImplementation implements NewsService<NewsDto> {
     private final NewsRepository<NewsModel> newsRepository;
     private final NewsValidator newsValidator = NewsValidator.getInstance();
 
@@ -27,7 +27,7 @@ public class NewsServiceImplementation implements NewsService<NewsDTO> {
     }
 
     @Override
-    public NewsDTO createNews(NewsDTO newsDTO) throws ServiceException {
+    public NewsDto createNews(NewsDto newsDTO) throws ServiceException {
         try {
             newsValidator.checkDTO(newsDTO);
             NewsModel createNewsModel = newsRepository.create(NewsMapper.INSTANCE.newsDTOtoNews(newsDTO));
@@ -38,7 +38,7 @@ public class NewsServiceImplementation implements NewsService<NewsDTO> {
     }
 
     @Override
-    public NewsDTO readByIdNews(Long id) throws ServiceException {
+    public NewsDto readByIdNews(Long id) throws ServiceException {
         try {
             isNewsExist(id);
             NewsModel newsModel = newsRepository.readById(id);
@@ -49,8 +49,8 @@ public class NewsServiceImplementation implements NewsService<NewsDTO> {
     }
 
     @Override
-    public List<NewsDTO> readAllNews() {
-        List<NewsDTO> news = new ArrayList<>();
+    public List<NewsDto> readAllNews() {
+        List<NewsDto> news = new ArrayList<>();
         for(NewsModel element : newsRepository.readAll()) {
             news.add(NewsMapper.INSTANCE.newsToNewsDTO(element));
         }
@@ -69,7 +69,7 @@ public class NewsServiceImplementation implements NewsService<NewsDTO> {
     }
 
     @Override
-    public NewsDTO updateNews(NewsDTO newsDTO) throws ServiceException{
+    public NewsDto updateNews(NewsDto newsDTO) throws ServiceException{
         try {
             newsValidator.checkDTO(newsDTO);
             isNewsExist(newsDTO.getId());

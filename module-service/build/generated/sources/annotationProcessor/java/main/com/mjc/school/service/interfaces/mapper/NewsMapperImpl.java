@@ -1,7 +1,8 @@
 package com.mjc.school.service.interfaces.mapper;
 
 import com.mjc.school.repository.model.NewsModel;
-import com.mjc.school.service.dto.NewsDTO;
+import com.mjc.school.service.dto.NewsDto;
+
 import java.time.LocalDateTime;
 import javax.annotation.processing.Generated;
 
@@ -13,12 +14,12 @@ import javax.annotation.processing.Generated;
 public class NewsMapperImpl implements NewsMapper {
 
     @Override
-    public NewsDTO newsToNewsDTO(NewsModel newsModel) {
+    public NewsDto newsToNewsDTO(NewsModel newsModel) {
         if ( newsModel == null ) {
             return null;
         }
 
-        NewsDTO newsDTO = new NewsDTO();
+        NewsDto newsDTO = new NewsDto();
 
         newsDTO.setId( newsModel.getId() );
         newsDTO.setTitle( newsModel.getTitle() );
@@ -31,7 +32,7 @@ public class NewsMapperImpl implements NewsMapper {
     }
 
     @Override
-    public NewsModel newsDTOtoNews(NewsDTO newsDTO) {
+    public NewsModel newsDTOtoNews(NewsDto newsDTO) {
         if ( newsDTO == null ) {
             return null;
         }

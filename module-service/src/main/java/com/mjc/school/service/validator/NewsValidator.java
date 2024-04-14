@@ -1,7 +1,7 @@
 package com.mjc.school.service.validator;
 
 import com.mjc.school.service.constants.ServiceConstants;
-import com.mjc.school.service.dto.NewsDTO;
+import com.mjc.school.service.dto.NewsDto;
 import com.mjc.school.service.exception.ErrorMeanings;
 import com.mjc.school.service.exception.IDNotFoundException;
 import com.mjc.school.service.exception.ValidatorException;
@@ -17,7 +17,7 @@ public class NewsValidator {
         return instance;
     }
 
-    public void checkDTO(NewsDTO dto) {
+    public void checkDTO(NewsDto dto) {
         int titleLength = dto.getTitle().length();
         int contentLength = dto.getContent().length();
         Long authorId = dto.getAuthorId();

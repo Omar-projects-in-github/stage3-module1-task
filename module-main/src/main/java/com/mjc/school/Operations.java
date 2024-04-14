@@ -1,7 +1,7 @@
 package com.mjc.school;
 
 import com.mjc.school.controller.implementation.NewsController;
-import com.mjc.school.service.dto.NewsDTO;
+import com.mjc.school.service.dto.NewsDto;
 import com.mjc.school.service.exception.ErrorMeanings;
 import com.mjc.school.service.exception.ValidatorException;
 
@@ -17,19 +17,19 @@ public class Operations {
     public void getNewsById() {
         System.out.println("Enter news id:");
         Long id = readNumber("News Id");
-        NewsDTO dto = controller.readById(id);
+        NewsDto dto = controller.readById(id);
         System.out.println(dto);
     }
 
     public void addNews() {
-        NewsDTO requestDTO = readValues(null);
+        NewsDto requestDTO = readValues(null);
         System.out.println(controller.create(requestDTO));
     }
 
     public void updateNews() {
         System.out.println("Enter news id:");
         Long id = readNumber("News Id");
-        NewsDTO requestDTO = readValues(id);
+        NewsDto requestDTO = readValues(id);
         System.out.println(controller.update(requestDTO));
     }
 
@@ -50,7 +50,7 @@ public class Operations {
         }
     }
 
-    private NewsDTO readValues(Long id) {
+    private NewsDto readValues(Long id) {
         Scanner scr = new Scanner(System.in);
         System.out.println("Enter news title:");
         String title = scr.nextLine();
@@ -58,6 +58,6 @@ public class Operations {
         String content = scr.nextLine();
         System.out.println("Enter author id:");
         Long authorId = readNumber("Author Id");
-        return new NewsDTO(title, content, authorId);
+        return new NewsDto(title, content, authorId);
     }
 }

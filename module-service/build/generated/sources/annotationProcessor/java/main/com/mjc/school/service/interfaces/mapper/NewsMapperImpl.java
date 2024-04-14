@@ -7,7 +7,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-04-14T23:36:11+0500",
+    date = "2024-04-15T00:10:27+0500",
     comments = "version: 1.5.5.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.6.jar, environment: Java 17.0.6 (Amazon.com Inc.)"
 )
 public class NewsMapperImpl implements NewsMapper {

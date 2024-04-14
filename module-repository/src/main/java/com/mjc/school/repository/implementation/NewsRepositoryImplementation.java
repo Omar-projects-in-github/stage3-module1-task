@@ -8,10 +8,11 @@ import java.util.List;
 
 public class NewsRepositoryImplementation implements NewsRepository<NewsModel> {
     private List<NewsModel> newsModelData;
-    private static NewsDataSource datasource;
+    private final NewsDataSource dataSource;
 
     public NewsRepositoryImplementation() {
-        this.newsModelData = NewsDataSource.getDataSource().getNewsList();
+        this.dataSource = NewsDataSource.getDataSource();
+        this.newsModelData = dataSource.getNewsList();
     }
 
     @Override

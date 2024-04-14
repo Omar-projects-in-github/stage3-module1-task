@@ -9,14 +9,22 @@ import java.util.List;
 
 public class FileUtil {
 
-    public static List<String> readFile(String fileName) throws IOException {
+    private FileUtil() {}
+
+    public static List<String> readFile(String fileName) {
+        FileUtil app = new FileUtil();
         List<String> lines = new ArrayList<>();
-        try (InputStream inputStream = FileUtil.class.getClassLoader().getResourceAsStream(fileName);
-             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                lines.add(line);
-            }
+        InputStream stream = app.getClass().getClassLoader().getResourceAsStream(fileName);
+        if (stream == null) {
+            throw new IllegalArgumentException("File not found.");
+        }
+        try( InputStreamReader streamReader = new InputStreamReader(stream);
+             BufferedReader reader = new BufferedReader(streamReader))
+        {
+            lines = reader.lines().toList();
+        } catch (IOException e){
+            System.out.println("Unable to read from file.");
+            e.printStackTrace();
         }
         return lines;
     }

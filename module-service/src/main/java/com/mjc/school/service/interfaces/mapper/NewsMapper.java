@@ -2,6 +2,9 @@ package com.mjc.school.service.interfaces.mapper;
 
 import com.mjc.school.repository.model.News;
 import com.mjc.school.service.dto.NewsDTO;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
+
 
 @Mapper
 public interface NewsMapper {

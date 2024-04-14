@@ -10,7 +10,7 @@ public class NewsRepositoryImplementation implements NewsRepository<News> {
     private List<News> newsData;
 
     public NewsRepositoryImplementation() {
-        this.newsData = NewsDataSource.getInstance().getNews();
+        this.newsData = NewsDataSource.getInstance().getNewsList();
     }
 
     @Override
@@ -39,7 +39,7 @@ public class NewsRepositoryImplementation implements NewsRepository<News> {
         News updatedModel = readById(model.getId());
         updatedModel.setTitle(model.getTitle());
         updatedModel.setContent(model.getContent());
-        updatedModel.setLastUpdateDate(model.getLastUpdateDate());
+        updatedModel.setLastUpdatedDate(model.getLastUpdatedDate());
         return updatedModel;
     }
 

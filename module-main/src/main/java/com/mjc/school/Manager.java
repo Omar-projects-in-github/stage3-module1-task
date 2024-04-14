@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Manager {
-    private static Map<String, String> menu = new LinkedHashMap<>();
+    private Map<String, String> menu = new LinkedHashMap<>();
 
     public Manager() {
         menu.put("1", "Get all news");
@@ -37,7 +37,7 @@ public class Manager {
         }
     }
 
-    private static String printMenu(){
+    private String printMenu() {
         System.out.println("Enter the number of operation:");
         Scanner scanner = new Scanner(System.in);
         menu.forEach((K,V) -> System.out.println(K + " - " + V));

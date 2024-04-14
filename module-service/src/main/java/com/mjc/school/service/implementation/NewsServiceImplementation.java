@@ -58,7 +58,7 @@ public class NewsServiceImplementation implements NewsService<NewsDTO> {
     }
 
     private void isNewsExist(Long id) throws ServiceException {
-        Optional<News> newsModel = NewsDataSource.getInstance().getNews()
+        Optional<News> newsModel = NewsDataSource.getInstance().getNewsList()
                 .stream()
                 .filter(el -> Objects.equals(el.getId(), id))
                 .findFirst();

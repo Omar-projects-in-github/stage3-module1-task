@@ -2,41 +2,42 @@ package com.mjc.school.repository.implementation;
 
 import com.mjc.school.repository.datasource.NewsDataSource;
 import com.mjc.school.repository.interfaces.NewsRepository;
-import com.mjc.school.repository.model.News;
+import com.mjc.school.repository.model.NewsModel;
 
 import java.util.List;
 
-public class NewsRepositoryImplementation implements NewsRepository<News> {
-    private List<News> newsData;
+public class NewsRepositoryImplementation implements NewsRepository<NewsModel> {
+    private List<NewsModel> newsModelData;
+    private static NewsDataSource datasource;
 
     public NewsRepositoryImplementation() {
-        this.newsData = NewsDataSource.getInstance().getNewsList();
+        this.newsModelData = NewsDataSource.getDataSource().getNewsList();
     }
 
     @Override
-    public News create(News model) {
-        Long maxId = newsData.stream().mapToLong(News::getId).max().orElse(0);
+    public NewsModel create(NewsModel model) {
+        Long maxId = newsModelData.stream().mapToLong(NewsModel::getId).max().orElse(0);
         model.setId(maxId + 1);
-        newsData.add(model);
+        newsModelData.add(model);
         return model;
     }
 
     @Override
-    public News readById(Long id) {
-        return newsData.stream()
+    public NewsModel readById(Long id) {
+        return newsModelData.stream()
                 .filter(x -> x.getId().equals(id))
                 .findFirst()
                 .get();
     }
 
     @Override
-    public List<News> readAll() {
-        return newsData;
+    public List<NewsModel> readAll() {
+        return newsModelData;
     }
 
     @Override
-    public News update(News model) {
-        News updatedModel = readById(model.getId());
+    public NewsModel update(NewsModel model) {
+        NewsModel updatedModel = readById(model.getId());
         updatedModel.setTitle(model.getTitle());
         updatedModel.setContent(model.getContent());
         updatedModel.setLastUpdatedDate(model.getLastUpdatedDate());
@@ -45,6 +46,6 @@ public class NewsRepositoryImplementation implements NewsRepository<News> {
 
     @Override
     public Boolean delete(Long id) {
-        return newsData.removeIf(x -> x.getId().equals(id));
+        return newsModelData.removeIf(x -> x.getId().equals(id));
     }
 }

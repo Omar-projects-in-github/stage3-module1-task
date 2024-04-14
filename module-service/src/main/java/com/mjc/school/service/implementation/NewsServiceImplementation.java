@@ -3,7 +3,7 @@ package com.mjc.school.service.implementation;
 import com.mjc.school.repository.datasource.NewsDataSource;
 import com.mjc.school.repository.implementation.NewsRepositoryImplementation;
 import com.mjc.school.repository.interfaces.NewsRepository;
-import com.mjc.school.repository.model.News;
+import com.mjc.school.repository.model.NewsModel;
 import com.mjc.school.service.dto.NewsDTO;
 import com.mjc.school.service.exception.ArgumentValidException;
 import com.mjc.school.service.exception.ErrorMeanings;
@@ -19,7 +19,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class NewsServiceImplementation implements NewsService<NewsDTO> {
-    private final NewsRepository<News> newsRepository;
+    private final NewsRepository<NewsModel> newsRepository;
     private final NewsValidator newsValidator = NewsValidator.getInstance();
 
     public NewsServiceImplementation() {
@@ -30,8 +30,8 @@ public class NewsServiceImplementation implements NewsService<NewsDTO> {
     public NewsDTO createNews(NewsDTO newsDTO) throws ServiceException {
         try {
             newsValidator.checkDTO(newsDTO);
-            News createNews = newsRepository.create(NewsMapper.INSTANCE.newsDTOtoNews(newsDTO));
-            return NewsMapper.INSTANCE.newsToNewsDTO(createNews);
+            NewsModel createNewsModel = newsRepository.create(NewsMapper.INSTANCE.newsDTOtoNews(newsDTO));
+            return NewsMapper.INSTANCE.newsToNewsDTO(createNewsModel);
         } catch (ArgumentValidException | IDNotFoundException exception) {
             throw new ServiceException(exception.getMessage());
         }
@@ -41,8 +41,8 @@ public class NewsServiceImplementation implements NewsService<NewsDTO> {
     public NewsDTO readByIdNews(Long id) throws ServiceException {
         try {
             isNewsExist(id);
-            News news = newsRepository.readById(id);
-            return NewsMapper.INSTANCE.newsToNewsDTO(news);
+            NewsModel newsModel = newsRepository.readById(id);
+            return NewsMapper.INSTANCE.newsToNewsDTO(newsModel);
         } catch (ArgumentValidException exception) {
             throw new ServiceException(exception.getMessage());
         }
@@ -51,14 +51,14 @@ public class NewsServiceImplementation implements NewsService<NewsDTO> {
     @Override
     public List<NewsDTO> readAllNews() {
         List<NewsDTO> news = new ArrayList<>();
-        for(News element : newsRepository.readAll()) {
+        for(NewsModel element : newsRepository.readAll()) {
             news.add(NewsMapper.INSTANCE.newsToNewsDTO(element));
         }
         return news;
     }
 
     private void isNewsExist(Long id) throws ServiceException {
-        Optional<News> newsModel = NewsDataSource.getInstance().getNewsList()
+        Optional<NewsModel> newsModel = NewsDataSource.getDataSource().getNewsList()
                 .stream()
                 .filter(el -> Objects.equals(el.getId(), id))
                 .findFirst();
@@ -73,8 +73,8 @@ public class NewsServiceImplementation implements NewsService<NewsDTO> {
         try {
             newsValidator.checkDTO(newsDTO);
             isNewsExist(newsDTO.getId());
-            News updateNews = newsRepository.update(NewsMapper.INSTANCE.newsDTOtoNews(newsDTO));
-            return NewsMapper.INSTANCE.newsToNewsDTO(updateNews);
+            NewsModel updateNewsModel = newsRepository.update(NewsMapper.INSTANCE.newsDTOtoNews(newsDTO));
+            return NewsMapper.INSTANCE.newsToNewsDTO(updateNewsModel);
         } catch (ArgumentValidException | IDNotFoundException e) {
             throw new ServiceException(e.getMessage());
         }

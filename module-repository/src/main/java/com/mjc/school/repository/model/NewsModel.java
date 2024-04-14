@@ -1,15 +1,8 @@
 package com.mjc.school.repository.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.cglib.core.Local;
-
 import java.time.LocalDateTime;
 
-public class News {
+public class NewsModel {
     private Long id;
     private String title;
     private String content;
@@ -22,8 +15,8 @@ public class News {
 
     private Long authorId;
 
-    public News(Long id, String title, String content, LocalDateTime createdDate,
-                LocalDateTime lastUpdatedDate, Long authorId) {
+    public NewsModel(Long id, String title, String content, LocalDateTime createdDate,
+                     LocalDateTime lastUpdatedDate, Long authorId) {
         this.id = id;
         this.title = title;
         this.content = content;

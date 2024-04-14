@@ -1,6 +1,6 @@
 package com.mjc.school.service.interfaces.mapper;
 
-import com.mjc.school.repository.model.News;
+import com.mjc.school.repository.model.NewsModel;
 import com.mjc.school.service.dto.NewsDTO;
 import java.time.LocalDateTime;
 import javax.annotation.processing.Generated;
@@ -13,25 +13,25 @@ import javax.annotation.processing.Generated;
 public class NewsMapperImpl implements NewsMapper {
 
     @Override
-    public NewsDTO newsToNewsDTO(News news) {
-        if ( news == null ) {
+    public NewsDTO newsToNewsDTO(NewsModel newsModel) {
+        if ( newsModel == null ) {
             return null;
         }
 
         NewsDTO newsDTO = new NewsDTO();
 
-        newsDTO.setId( news.getId() );
-        newsDTO.setTitle( news.getTitle() );
-        newsDTO.setContent( news.getContent() );
-        newsDTO.setAuthorId( news.getAuthorId() );
-        newsDTO.setCreatedDate( news.getCreatedDate() );
-        newsDTO.setLastUpdatedDate( news.getLastUpdatedDate() );
+        newsDTO.setId( newsModel.getId() );
+        newsDTO.setTitle( newsModel.getTitle() );
+        newsDTO.setContent( newsModel.getContent() );
+        newsDTO.setAuthorId( newsModel.getAuthorId() );
+        newsDTO.setCreatedDate( newsModel.getCreatedDate() );
+        newsDTO.setLastUpdatedDate( newsModel.getLastUpdatedDate() );
 
         return newsDTO;
     }
 
     @Override
-    public News newsDTOtoNews(NewsDTO newsDTO) {
+    public NewsModel newsDTOtoNews(NewsDTO newsDTO) {
         if ( newsDTO == null ) {
             return null;
         }
@@ -50,8 +50,8 @@ public class NewsMapperImpl implements NewsMapper {
         lastUpdatedDate = newsDTO.getLastUpdatedDate();
         authorId = newsDTO.getAuthorId();
 
-        News news = new News( id, title, content, createdDate, lastUpdatedDate, authorId );
+        NewsModel newsModel = new NewsModel( id, title, content, createdDate, lastUpdatedDate, authorId );
 
-        return news;
+        return newsModel;
     }
 }

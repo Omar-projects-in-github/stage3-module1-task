@@ -1,38 +1,36 @@
 package com.mjc.school.controller.implementation;
 
-import com.mjc.school.controller.interfaces.Controller;
-import com.mjc.school.service.dto.NewsDto;
-import com.mjc.school.service.exception.ServiceException;
-import com.mjc.school.service.implementation.NewsServiceImplementation;
-import com.mjc.school.service.interfaces.NewsService;
+import com.mjc.school.service.dto.NewsDtoRequest;
+import com.mjc.school.service.dto.NewsDtoResponse;
+import com.mjc.school.service.factory.ServiceFactory;
+import com.mjc.school.service.interfaces.Service;
 
 import java.util.List;
 
-public class NewsController implements Controller<NewsDto> {
-    private final NewsService<NewsDto> newsService = new NewsServiceImplementation();
+public class NewsController {
+    private final Service<NewsDtoRequest, NewsDtoResponse> newsService;
 
-    @Override
-    public NewsDto create(NewsDto model) throws ServiceException {
-        return newsService.createNews(model);
+    public NewsController() {
+        newsService = ServiceFactory.getInstance().getNewsService();
     }
 
-    @Override
-    public NewsDto readById(Long id) throws ServiceException {
-        return newsService.readByIdNews(id);
+    public List<NewsDtoResponse> readAll() {
+        return newsService.readAll();
     }
 
-    @Override
-    public List<NewsDto> readAll() {
-        return newsService.readAllNews();
+    public NewsDtoResponse readById(Long newsId) {
+        return newsService.readById(newsId);
     }
 
-    @Override
-    public NewsDto update(NewsDto model) throws ServiceException {
-        return newsService.updateNews(model);
+    public NewsDtoResponse create(NewsDtoRequest dtoRequest) {
+        return newsService.create(dtoRequest);
     }
 
-    @Override
-    public Boolean delete(Long id) throws ServiceException {
-        return newsService.deleteNews(id);
+    public NewsDtoResponse update(NewsDtoRequest dtoRequest) {
+        return newsService.update(dtoRequest);
+    }
+
+    public Boolean deleteById(Long newsId) {
+        return newsService.deleteById(newsId);
     }
 }

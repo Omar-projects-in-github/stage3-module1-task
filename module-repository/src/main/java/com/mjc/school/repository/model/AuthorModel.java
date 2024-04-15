@@ -1,6 +1,8 @@
 package com.mjc.school.repository.model;
 
 
+import java.util.Objects;
+
 public class AuthorModel {
     private Long id;
     private String name;
@@ -9,7 +11,6 @@ public class AuthorModel {
         this.id = id;
         this.name = name;
     }
-
 
     public Long getId() {
         return id;
@@ -25,5 +26,17 @@ public class AuthorModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AuthorModel that)) return false;
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 }

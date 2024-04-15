@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mjc.school.controller.WebModuleTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2024-04-15T17:34:23" hostname="DESKTOP-1O7JJI2" time="0.149">
+  <properties/>
+  <testcase name="deleteControllerMethodShouldHaveReturnTypeAndTakeParameter()" classname="com.mjc.school.controller.WebModuleTest" time="0.085"/>
+  <testcase name="controllerClassShouldHaveParametrizedReferenceToServiceLayer()" classname="com.mjc.school.controller.WebModuleTest" time="0.002"/>
+  <testcase name="controllerClassShouldHavePartOfCreateMethodName()" classname="com.mjc.school.controller.WebModuleTest" time="0.001"/>
+  <testcase name="implementationPackageShouldBeDefinedInControllerModule()" classname="com.mjc.school.controller.WebModuleTest" time="0.001"/>
+  <testcase name="controllerPackageShouldBeDefinedInControllerModule()" classname="com.mjc.school.controller.WebModuleTest" time="0.001"/>
+  <testcase name="controllerClassShouldHavePartOfReadByMethodName()" classname="com.mjc.school.controller.WebModuleTest" time="0.003"/>
+  <testcase name="controllerClassShouldHavePartOfReadAllMethodName()" classname="com.mjc.school.controller.WebModuleTest" time="0.002"/>
+  <testcase name="controllerClassShouldHavePartOfControllerClassName()" classname="com.mjc.school.controller.WebModuleTest" time="0.001"/>
+  <testcase name="updateControllerMethodShouldHaveReturnTypeAndTakeParameter()" classname="com.mjc.school.controller.WebModuleTest" time="0.001"/>
+  <testcase name="controllerClassShouldHavePartOfUpdateMethodName()" classname="com.mjc.school.controller.WebModuleTest" time="0.004"/>
+  <testcase name="controllerLayerShouldNotHaveReferenceToRepositoryLayer()" classname="com.mjc.school.controller.WebModuleTest" time="0.005"/>
+  <testcase name="readAllControllerMethodShouldHaveOnlyReturnType()" classname="com.mjc.school.controller.WebModuleTest" time="0.002"/>
+  <testcase name="readByControllerMethodShouldHaveReturnTypeAndTakeParameter()" classname="com.mjc.school.controller.WebModuleTest" time="0.002"/>
+  <testcase name="createControllerMethodShouldHaveReturnTypeAndTakeParameter()" classname="com.mjc.school.controller.WebModuleTest" time="0.002"/>
+  <testcase name="controllerClassShouldHePartOfDeleteMethodName()" classname="com.mjc.school.controller.WebModuleTest" time="0.005"/>
+  <testcase name="controllerClassShouldHaveConstructor()" classname="com.mjc.school.controller.WebModuleTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

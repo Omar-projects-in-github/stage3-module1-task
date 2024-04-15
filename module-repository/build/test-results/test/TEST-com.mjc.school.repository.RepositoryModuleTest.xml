@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mjc.school.repository.RepositoryModuleTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2024-04-15T17:38:16" hostname="DESKTOP-1O7JJI2" time="0.106">
+  <properties/>
+  <testcase name="repositoryPackageShouldBeDefinedInRepositoryModule()" classname="com.mjc.school.repository.RepositoryModuleTest" time="0.05"/>
+  <testcase name="readAllRepositoryMethodShouldHaveOnlyReturnType()" classname="com.mjc.school.repository.RepositoryModuleTest" time="0.008"/>
+  <testcase name="repositoryClassShouldHavePartOfRepositoryClassName()" classname="com.mjc.school.repository.RepositoryModuleTest" time="0.001"/>
+  <testcase name="repositoryClassShouldHaveConstructor()" classname="com.mjc.school.repository.RepositoryModuleTest" time="0.001"/>
+  <testcase name="repositoryClassShouldHavePartOfCreateMethodName()" classname="com.mjc.school.repository.RepositoryModuleTest" time="0.004"/>
+  <testcase name="repositoryClassShouldHavePartOfReadByMethodName()" classname="com.mjc.school.repository.RepositoryModuleTest" time="0.001"/>
+  <testcase name="deleteRepositoryMethodShouldHaveReturnTypeAndTakeParameter()" classname="com.mjc.school.repository.RepositoryModuleTest" time="0.001"/>
+  <testcase name="repositoryClassShouldHaveReferenceToDataSource()" classname="com.mjc.school.repository.RepositoryModuleTest" time="0.003"/>
+  <testcase name="repositoryClassShouldHavePartOfDeleteMethodName()" classname="com.mjc.school.repository.RepositoryModuleTest" time="0.001"/>
+  <testcase name="repositoryLayerShouldNotHaveFieldWithPartNameOfServiceLayer()" classname="com.mjc.school.repository.RepositoryModuleTest" time="0.002"/>
+  <testcase name="repositoryClassShouldHavePartOfUpdateMethodName()" classname="com.mjc.school.repository.RepositoryModuleTest" time="0.001"/>
+  <testcase name="updateRepositoryMethodShouldHaveReturnTypeAndTakeParameter()" classname="com.mjc.school.repository.RepositoryModuleTest" time="0.001"/>
+  <testcase name="implementationPackageShouldBeDefinedInRepositoryModule()" classname="com.mjc.school.repository.RepositoryModuleTest" time="0.001"/>
+  <testcase name="repositoryClassShouldHavePartOfReadAllMethodName()" classname="com.mjc.school.repository.RepositoryModuleTest" time="0.001"/>
+  <testcase name="readByRepositoryMethodShouldHaveReturnTypeAndTakeParameter()" classname="com.mjc.school.repository.RepositoryModuleTest" time="0.002"/>
+  <testcase name="createRepositoryMethodShouldHaveReturnTypeAndTakeParameter()" classname="com.mjc.school.repository.RepositoryModuleTest" time="0.001"/>
+  <testcase name="repositoryLayerShouldNotHaveFieldWithPartNameOfControllerLayer()" classname="com.mjc.school.repository.RepositoryModuleTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

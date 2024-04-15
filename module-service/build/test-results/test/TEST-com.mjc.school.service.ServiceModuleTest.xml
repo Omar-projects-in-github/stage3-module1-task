@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mjc.school.service.ServiceModuleTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2024-04-15T17:34:34" hostname="DESKTOP-1O7JJI2" time="0.103">
+  <properties/>
+  <testcase name="implementationPackageShouldBeDefinedInServiceModule()" classname="com.mjc.school.service.ServiceModuleTest" time="0.051"/>
+  <testcase name="servicePackageShouldBeDefinedInServiceModule()" classname="com.mjc.school.service.ServiceModuleTest" time="0.001"/>
+  <testcase name="serviceClassShouldHavePartOfServiceClassName()" classname="com.mjc.school.service.ServiceModuleTest" time="0.002"/>
+  <testcase name="serviceLayerShouldNotHaveFieldWithPartNameOfControllerLayer()" classname="com.mjc.school.service.ServiceModuleTest" time="0.006"/>
+  <testcase name="createServiceMethodShouldHaveReturnTypeAndTakeParameter()" classname="com.mjc.school.service.ServiceModuleTest" time="0.003"/>
+  <testcase name="serviceClassShouldHaveParametrizedReferenceToRepositoryLayer()" classname="com.mjc.school.service.ServiceModuleTest" time="0.005"/>
+  <testcase name="serviceClassShouldHavePartOfReadAllMethodName()" classname="com.mjc.school.service.ServiceModuleTest" time="0.001"/>
+  <testcase name="readByServiceMethodShouldHaveReturnTypeAndTakeParameter()" classname="com.mjc.school.service.ServiceModuleTest" time="0.002"/>
+  <testcase name="updateServiceMethodShouldHaveReturnTypeAndTakeParameter()" classname="com.mjc.school.service.ServiceModuleTest" time="0.001"/>
+  <testcase name="readAllServiceMethodShouldHaveOnlyReturnType()" classname="com.mjc.school.service.ServiceModuleTest" time="0.001"/>
+  <testcase name="serviceClassShouldHavePartOfCreateMethodName()" classname="com.mjc.school.service.ServiceModuleTest" time="0.001"/>
+  <testcase name="serviceClassShouldHavePartOfReadByMethodName()" classname="com.mjc.school.service.ServiceModuleTest" time="0.001"/>
+  <testcase name="deleteServiceMethodShouldHaveReturnTypeAndTakeParameter()" classname="com.mjc.school.service.ServiceModuleTest" time="0.001"/>
+  <testcase name="serviceClassShouldHavePartOfDeleteMethodName()" classname="com.mjc.school.service.ServiceModuleTest" time="0.001"/>
+  <testcase name="serviceClassShouldHaveConstructor()" classname="com.mjc.school.service.ServiceModuleTest" time="0.002"/>
+  <testcase name="serviceClassShouldHavePartOfUpdateMethodName()" classname="com.mjc.school.service.ServiceModuleTest" time="0.001"/>
+  <testcase name="serviceClassShouldHaveReferenceToValidator()" classname="com.mjc.school.service.ServiceModuleTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

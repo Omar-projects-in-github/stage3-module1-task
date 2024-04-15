@@ -1,41 +1,68 @@
 package com.mjc.school.service.validator;
 
-import com.mjc.school.service.constants.ServiceConstants;
-import com.mjc.school.service.dto.NewsDto;
-import com.mjc.school.service.exception.ErrorMeanings;
-import com.mjc.school.service.exception.IDNotFoundException;
+import com.mjc.school.service.dto.NewsDtoRequest;
 import com.mjc.school.service.exception.ValidatorException;
 
+import static com.mjc.school.service.exception.ServiceErrorCode.*;
+
 public class NewsValidator {
-    private static NewsValidator instance;
+    private static final String NEWS_ID = "News id";
+    private static final String NEWS_CONTENT = "News content";
+    private static final String AUTHOR_ID = "Author id";
+    private static final String NEWS_TITLE = "News title";
+    private static final Integer NEWS_CONTENT_MIN_LENGTH = 5;
+    private static final Integer NEWS_CONTENT_MAX_LENGTH = 255;
+    private static final Integer NEWS_TITLE_MIN_LENGTH = 5;
+    private static final Integer NEWS_TITLE_MAX_LENGTH = 30;
+    private static final Integer MAX_AUTHOR_ID = 20;
+    private static NewsValidator newsValidator;
 
-    private NewsValidator() {}
-
-    public static NewsValidator getInstance() {
-        if (instance == null)
-            instance = new NewsValidator();
-        return instance;
+    public static NewsValidator getNewsValidator() {
+        if (newsValidator == null) {
+            newsValidator = new NewsValidator();
+        }
+        return newsValidator;
     }
 
-    public void checkDTO(NewsDto dto) {
-        int titleLength = dto.getTitle().length();
-        int contentLength = dto.getContent().length();
-        Long authorId = dto.getAuthorId();
-        if (titleLength < ServiceConstants.MIN_TITLE_LENGTH ||
-        titleLength > ServiceConstants.MAX_TITLE_LENGTH)
-            throw new ValidatorException(String.format(
-                    ErrorMeanings.TITLE_LENGTH_REQUIREMENT.getMessage(), ServiceConstants.MIN_TITLE_LENGTH,
-                    ServiceConstants.MAX_TITLE_LENGTH, dto.getTitle()
-            ));
-        if (contentLength < ServiceConstants.MIN_CONTENT_LENGTH ||
-        contentLength > ServiceConstants.MAX_CONTENT_LENGTH)
-            throw new ValidatorException(String.format(
-                    ErrorMeanings.CONTENT_LENGTH_REQUIREMENT.getMessage(), ServiceConstants.MIN_CONTENT_LENGTH,
-                    ServiceConstants.MAX_CONTENT_LENGTH, dto.getContent()
-            ));
-        if (authorId < 0 || authorId > ServiceConstants.MAX_AUTHOR_ID)
-            throw new IDNotFoundException(String.format(
-                    ErrorMeanings.AUTHOR_ID_NOT_EXIST.getMessage(), authorId)
-            );
+    public void validateNewsId(Long newsId) {
+        validateNumber(newsId, NEWS_ID);
+    }
+
+    public void validateAuthorId(Long authorId) {
+        validateNumber(authorId, AUTHOR_ID);
+        if (authorId > MAX_AUTHOR_ID) {
+            throw new ValidatorException(String.format(AUTHOR_ID_DOES_NOT_EXIST.getMessage(), authorId));
+        }
+    }
+
+    public void validateNewsDto(NewsDtoRequest dtoRequest) {
+        validateString(dtoRequest.title(), NEWS_TITLE, NEWS_TITLE_MIN_LENGTH, NEWS_TITLE_MAX_LENGTH);
+        validateString(
+                dtoRequest.content(), NEWS_CONTENT, NEWS_CONTENT_MIN_LENGTH, NEWS_CONTENT_MAX_LENGTH);
+        validateAuthorId(dtoRequest.authorId());
+    }
+
+    private void validateNumber(Long id, String parameter) {
+        if (id == null || id < 1) {
+            throw new ValidatorException(
+                    String.format(VALIDATE_NEGATIVE_OR_NULL_NUMBER.getMessage(), parameter, parameter, id));
+        }
+    }
+
+    private void validateString(String value, String parameter, int minLength, int maxLength) {
+        if (value == null) {
+            throw new ValidatorException(
+                    String.format(VALIDATE_NULL_STRING.getMessage(), parameter, parameter));
+        }
+        if (value.trim().length() < minLength || value.trim().length() > maxLength) {
+            throw new ValidatorException(
+                    String.format(
+                            VALIDATE_STRING_LENGTH.getMessage(),
+                            parameter,
+                            minLength,
+                            maxLength,
+                            parameter,
+                            value));
+        }
     }
 }
